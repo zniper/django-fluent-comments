@@ -23,7 +23,7 @@ class FluentCommentForm(base_class):
                 self.fields.pop(name)
             except KeyError:
                 raise ImproperlyConfigured("Field name '{0}' in FLUENT_COMMENTS_EXCLUDE_FIELDS is invalid, it does not exist in the comment form.")
-
+        self.fields['comment'].widget.attrs['placeholder'] = 'Please enter your comment'
 
     def get_comment_create_data(self):
         # Fake form data for excluded fields, so there are no KeyError exceptions
